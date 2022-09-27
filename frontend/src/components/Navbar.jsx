@@ -3,7 +3,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import { Logout } from "../actions/userAction";
+import SearchBox from "./SearchBox";
 
 function BasicExample() {
   const dispatch = useDispatch();
@@ -20,6 +22,7 @@ function BasicExample() {
     <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
       <Container>
         <Navbar.Brand href="/">ProShop.</Navbar.Brand>
+        <SearchBox />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

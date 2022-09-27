@@ -17,7 +17,6 @@ function UsersList() {
   const UserDel = useSelector((state) => state.UserDel);
   const { success: successDelete } = UserDel;
   useEffect(() => {
-    dispatch(GetUserList());
     if (userInfo && userInfo.isAdmin) {
       dispatch(GetUserList());
     } else {

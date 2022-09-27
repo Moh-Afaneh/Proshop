@@ -1,20 +1,25 @@
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Loader from "../components/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productAction";
+import { useParams } from "react-router-dom";
+import Paginate from "../components/Paginate";
+import ProductCarousel from "../components/ProductCarousel";
 function HomeScreen() {
+  const { keyword, pageNumber } = useParams();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const { products, loading } = productList;
+  const { products, page, pages, loading } = productList;
   console.log(products);
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword, pageNumber));
+  }, [dispatch, keyword, pageNumber]);
   return (
     <>
+      {!keyword && <ProductCarousel />}
       <h1>Featured Products</h1>
 
       {loading ? (
@@ -29,6 +34,11 @@ function HomeScreen() {
                 </Col>
               ))}
           </Row>
+          <Paginate
+            page={page}
+            pages={pages}
+            keyword={keyword ? keyword : ""}
+          />
         </>
       )}
     </>

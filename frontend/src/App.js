@@ -24,13 +24,23 @@ import OrderListScreen from "./Screen/OrderListScreen";
 function App() {
   return (
     <>
-      <Header />
       <Router>
+        <Header />
         <main className="py-3">
           <Container>
             <Routes>
               <Route path="/" element={<HomeScreen />} />
+              <Route path="/page/:pageNumber" element={<HomeScreen />} />
+              <Route
+                path="/search/:keyword/page/:pageNumber"
+                element={<HomeScreen />}
+              />
+              <Route path="/search/:keyword" element={<HomeScreen />} />
               <Route path="admin/productList" element={<ProductListScreen />} />
+              <Route
+                path="admin/productList/:pageNumber"
+                element={<ProductListScreen />}
+              />
               <Route path="admin/user/:id/edit" element={<EditUsersScreen />} />
               <Route
                 path="admin/product/:id/edit"

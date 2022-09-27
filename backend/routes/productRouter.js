@@ -5,6 +5,8 @@ import {
   productDelete,
   productCreate,
   productUpdate,
+  createProductReview,
+  getTopRated,
 } from "../Controllers/productController.js";
 import {
   protectAdmin,
@@ -18,6 +20,8 @@ router
   .route("/")
   .get(getProducts)
   .post(protectRoutes, protectAdmin, productCreate);
+router.route("/:id/reviews").post(protectRoutes, createProductReview);
+router.route("/top").get(getTopRated);
 
 // @desc Fetch single product
 // @route Get/api/products/id

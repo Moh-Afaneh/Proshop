@@ -70,3 +70,29 @@ export const productUpdateReducer = (state = { product: {} }, action) => {
       return state;
   }
 };
+export const productCreateReviewReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "PRODUCT_REVIEW_CREATE_REQUEST":
+      return { loading: true };
+    case "PRODUCT_REVIEW_CREATE_SUCCESS":
+      return { loading: false, success: true };
+    case "PRODUCT_REVIEW_CREATE_FAIL":
+      return { loading: false, Error: action.payload };
+    case "PRODUCT_REVIEW_CREATE_RESET":
+      return {};
+    default:
+      return state;
+  }
+};
+export const topProductsRated = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case "PRODUCT_TOP_RATED_REQUEST":
+      return { loading: true, products: [] };
+    case "PRODUCT_TOP_RATED_SUCCESS":
+      return { loading: false, products: action.payload };
+    case "PRODUCT_TOP_RATED_FAIL":
+      return { loading: false, Error: action.payload };
+    default:
+      return state;
+  }
+};

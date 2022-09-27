@@ -24,10 +24,12 @@ import {
 } from "./reducers/orderReducers";
 import {
   productCreateReducer,
+  productCreateReviewReducer,
   productDeleteReducer,
   productDetailsReducer,
   productListReducer,
   productUpdateReducer,
+  topProductsRated,
 } from "./reducers/productReducers";
 const reducer = combineReducers({
   cart: HandleCart,
@@ -51,6 +53,8 @@ const reducer = combineReducers({
   productUpdate: productUpdateReducer,
   AllOrders: getAllOrdersReducer,
   deliveredStatus: orderDeliverReducer,
+  productReviewCreate: productCreateReviewReducer,
+  productTopRated: topProductsRated,
 });
 const cartItemStorage = localStorage.getItem("cart")
   ? JSON?.parse(localStorage?.getItem("cart"))
