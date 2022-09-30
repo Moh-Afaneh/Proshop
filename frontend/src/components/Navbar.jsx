@@ -31,7 +31,8 @@ function BasicExample() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/cart">
-              <i className="fas fa-shopping-cart"></i> Cart ({cart.length})
+              <i className="fas fa-shopping-cart"></i> Cart (
+              {cart.length ? cart.length : 0})
             </Nav.Link>
             {userInfo ? (
               <NavDropdown title={userInfo?.name} id="username">

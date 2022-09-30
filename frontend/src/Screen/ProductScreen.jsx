@@ -195,11 +195,11 @@ function ProductScreen() {
                       <Row>
                         <Col className="text-center">
                           <Button
-                            className="btn-light w-auto"
+                            className="btn-light "
                             disabled={stockCheck?._id === id}
-                            onClick={() => setQtyInc()}
+                            onClick={() => setQtyDec()}
                           >
-                            <i className="fa-solid fa-plus"></i>
+                            <i className="fa-solid fa-minus"></i>
                           </Button>
                           <Button
                             className="w-20 text-center"
@@ -208,11 +208,11 @@ function ProductScreen() {
                             {qty}
                           </Button>
                           <Button
-                            className="btn-light "
+                            className="btn-light w-auto"
                             disabled={stockCheck?._id === id}
-                            onClick={() => setQtyDec()}
+                            onClick={() => setQtyInc()}
                           >
-                            <i className="fa-solid fa-minus"></i>
+                            <i className="fa-solid fa-plus"></i>
                           </Button>
                         </Col>
                       </Row>
