@@ -49,6 +49,8 @@ export const HandleCart = (state = { cart: [] }, action) => {
           x._id === product?._id ? { ...x, qty: x.qty - 1 } : x
         );
       }
+    case "RESETITEM":
+      return { cart: [] };
 
     default:
       return state;

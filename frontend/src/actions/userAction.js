@@ -44,6 +44,9 @@ export const Logout = () => async (dispatch) => {
   dispatch({
     type: "USER_DETAILS_RESET",
   });
+  dispatch({
+    type: "RESETITEM",
+  });
 };
 export const Register = (name, email, password) => async (dispatch) => {
   try {
