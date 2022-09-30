@@ -8,7 +8,7 @@ import {
   registerUser,
   UpdateUserAdmin,
   updateUserProfile,
-} from "../Controllers/userController.js";
+} from "../controllers/userController.js";
 import {
   protectAdmin,
   protectRoutes,

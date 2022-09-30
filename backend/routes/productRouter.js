@@ -7,7 +7,7 @@ import {
   productUpdate,
   createProductReview,
   getTopRated,
-} from "../Controllers/productController.js";
+} from "../controllers/productController.js";
 import {
   protectAdmin,
   protectRoutes,
