@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import users from "./data/users.js";
 import products from "./data/products.js";
-import Product from "./Models/productModel.js";
-import User from "./Models/userModel.js";
-import Order from "./Models/orderModel.js";
+import Product from "./models/productModel.js";
+import User from "./models/userModel.js";
+import Order from "./models/orderModel.js";
 dotenv.config();
 connectDB();
 const importData = async () => {
