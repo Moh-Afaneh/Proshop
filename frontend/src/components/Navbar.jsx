@@ -3,12 +3,14 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { ResetCart } from "../actions/cartAction";
 import { Logout } from "../actions/userAction";
 import SearchBox from "./SearchBox";
 
 function BasicExample() {
   const dispatch = useDispatch();
+  const nav = useNavigate();
   const cart = useSelector((state) => state.cart);
   const state = useSelector((state) => state.UserLogin);
   console.log(state.userInfo);
@@ -16,6 +18,8 @@ function BasicExample() {
 
   const logoutHandler = () => {
     dispatch(Logout());
+    nav("/");
+    dispatch(ResetCart());
   };
 
   return (
