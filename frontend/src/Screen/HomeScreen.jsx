@@ -7,6 +7,8 @@ import { listProducts } from "../actions/productAction";
 import { useParams } from "react-router-dom";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
+import Meta from "../components/Meta";
+import { Link } from "react-router-dom";
 function HomeScreen() {
   const { keyword, pageNumber } = useParams();
   const dispatch = useDispatch();
@@ -19,7 +21,14 @@ function HomeScreen() {
   }, [dispatch, keyword, pageNumber]);
   return (
     <>
-      {!keyword && <ProductCarousel />}
+      <Meta />
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to={"/"} className="btn btn-dark my-3">
+          Go back
+        </Link>
+      )}
       <h1>Featured Products</h1>
 
       {loading ? (

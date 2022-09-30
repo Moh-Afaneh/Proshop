@@ -25,10 +25,10 @@ function ProductCarousel() {
             products?.products?.map((product) => (
               <Carousel.Item key={product._id}>
                 <Link to={`/product/${product._id}`}>
-                  <Image src={product.image} fluid className="w-100" />
+                  <Image src={product.image} fluid className="d-block w-100" />
                   <Carousel.Caption className="carousel-caption">
                     <h2>
-                      {product.name}({product.price})
+                      {product.name}(${product.price})
                     </h2>
                   </Carousel.Caption>
                 </Link>

@@ -24,6 +24,7 @@ import {
   listProductDetails,
   createProductReview,
 } from "../actions/productAction";
+import Meta from "../components/Meta";
 function ProductScreen() {
   const { id } = useParams();
   const [qty, setqty] = useState(1);
@@ -33,11 +34,7 @@ function ProductScreen() {
   const state = useSelector((state) => state.cart);
   const nav = useNavigate();
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
-  const {
-    loading: loadingReview,
-    success: ReviewSuccess,
-    Error: ErrorReview,
-  } = productReviewCreate;
+  const { success: ReviewSuccess, Error: ErrorReview } = productReviewCreate;
   console.log(ErrorReview);
   const UserLogin = useSelector((state) => state.UserLogin);
   const { userInfo } = UserLogin;
@@ -148,6 +145,7 @@ function ProductScreen() {
         <Loader />
       ) : (
         <>
+          <Meta title={product?.name} />
           <Row>
             <Col lg={6}>
               <Image src={product?.image} alt={product?.name} />

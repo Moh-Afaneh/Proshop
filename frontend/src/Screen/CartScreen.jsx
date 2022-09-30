@@ -8,6 +8,7 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RemoveCart, UpdateCart } from "../actions/cartAction";
@@ -30,6 +31,17 @@ function CartScreen() {
 
   return (
     <>
+      <Helmet>
+        <title>Welcome to ProShop | Cart</title>
+        <meta
+          name="description"
+          content="We sell the best products for cheap"
+        />
+        <meta
+          name="keywords"
+          content="electronics , buy electronics , cheap electronics "
+        />
+      </Helmet>
       <Row>
         <Col md={8}>
           <h1>Shopping Cart</h1>

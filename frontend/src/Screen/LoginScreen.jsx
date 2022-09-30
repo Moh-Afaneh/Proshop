@@ -38,45 +38,47 @@ const LoginScreen = () => {
     }
   }, [userInfo, redirect, nav]);
   return (
-    <FormContainer>
-      <h1 className="display-6 fw-bold">Sign in</h1>
-      {Error && <Message>{Error}</Message>}
-      {loading && <Loader />}
-      <Form onSubmit={onSumbit}>
-        <FormGroup controlId="email">
-          <FormLabel>Email Address</FormLabel>
-          <FormControl
-            type="email"
-            placeholder="enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></FormControl>
-        </FormGroup>
-        <FormGroup controlId="password" className="my-3">
-          <FormLabel>Enter Your password</FormLabel>
-          <FormControl
-            type="password"
-            placeholder="enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></FormControl>
-        </FormGroup>
-        <Button type="submit" variant="primary" className="my-3">
-          Sign in
-        </Button>
-      </Form>
-      <Row className="py-3">
-        <Col>
-          New Customer ?{" "}
-          <Link
-            className="fw-bold"
-            to={redirect ? `/register?redirect=${redirect}` : `/register`}
-          >
-            Register
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+    <>
+      <FormContainer>
+        <h1 className="display-6 fw-bold">Sign in</h1>
+        {Error && <Message>{Error}</Message>}
+        {loading && <Loader />}
+        <Form onSubmit={onSumbit}>
+          <FormGroup controlId="email">
+            <FormLabel>Email Address</FormLabel>
+            <FormControl
+              type="email"
+              placeholder="enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></FormControl>
+          </FormGroup>
+          <FormGroup controlId="password" className="my-3">
+            <FormLabel>Enter Your password</FormLabel>
+            <FormControl
+              type="password"
+              placeholder="enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></FormControl>
+          </FormGroup>
+          <Button type="submit" variant="primary" className="my-3">
+            Sign in
+          </Button>
+        </Form>
+        <Row className="py-3">
+          <Col>
+            New Customer ?{" "}
+            <Link
+              className="fw-bold"
+              to={redirect ? `/register?redirect=${redirect}` : `/register`}
+            >
+              Register
+            </Link>
+          </Col>
+        </Row>
+      </FormContainer>
+    </>
   );
 };
 export default LoginScreen;

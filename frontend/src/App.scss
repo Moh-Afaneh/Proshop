@@ -190,7 +190,7 @@ h3 {
 
 .carousel img {
   object-fit: cover;
-  height: 400px;
+  max-height: 400px;
   padding: 30px;
   margin: 40px;
   border-radius: 50%;

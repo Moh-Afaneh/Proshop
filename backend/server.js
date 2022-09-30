@@ -24,11 +24,7 @@ app.listen(
       .bold
   )
 );
-app.get("/", (req, res) => {
-  res.send("Api is running");
-});
-const __dirname = path.resolve();
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/order", orderRouter);
@@ -36,6 +32,18 @@ app.use("/api/uploads", uploadRouter);
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("Api is running");
+  });
+}
 
 app.use(notFound);
 app.use(ErrorHandler);
