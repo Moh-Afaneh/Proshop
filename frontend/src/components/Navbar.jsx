@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ResetCart } from "../actions/cartAction";
 import { Logout } from "../actions/userAction";
 import SearchBox from "./SearchBox";
@@ -13,9 +13,10 @@ function BasicExample() {
   const nav = useNavigate();
   const cart = useSelector((state) => state.cart);
   const state = useSelector((state) => state.UserLogin);
+  const UserUpdateProfile = useSelector((state) => state.UserUpdateProfile);
   console.log(state.userInfo);
+  console.log(UserUpdateProfile.userInfo);
   const userInfo = state?.userInfo;
-
   const logoutHandler = () => {
     dispatch(Logout());
     nav("/");
@@ -35,7 +36,14 @@ function BasicExample() {
               {cart.length ? cart.length : 0})
             </Nav.Link>
             {userInfo ? (
-              <NavDropdown title={userInfo?.name} id="username">
+              <NavDropdown
+                title={
+                  UserUpdateProfile.userInfo
+                    ? UserUpdateProfile.userInfo?.name
+                    : userInfo?.name
+                }
+                id="username"
+              >
                 <NavDropdown.Item href="/profile">profile</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => logoutHandler()}>
                   Logout
@@ -46,7 +54,7 @@ function BasicExample() {
                 <i className="fas fa-user"></i> Login
               </Nav.Link>
             )}
-            {userInfo && userInfo.isAdmin && (
+            {userInfo && UserUpdateProfile.userInfo?.isAdmin && (
               <NavDropdown title="Admin" id="adminMenu">
                 <NavDropdown.Item href="/admin/userList">
                   Users

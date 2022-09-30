@@ -20,7 +20,7 @@ function ProductCarousel() {
       {loading ? (
         <Loader />
       ) : (
-        <Carousel pause="hover" className="bg-dark my-5">
+        <Carousel touch={true} pause="hover" className="bg-dark my-5">
           {products &&
             products?.products?.map((product) => (
               <Carousel.Item key={product._id}>

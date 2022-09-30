@@ -63,6 +63,7 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
       name: updateUser.name,
       email: updateUser.email,
       isAdmin: updateUser.isAdmin,
+      token: generateToken(user._id),
     });
   } else {
     res.status(200).json({

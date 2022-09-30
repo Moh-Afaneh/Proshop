@@ -47,7 +47,6 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     if (!userInfo) {
-      dispatch(getUserDetails("profile"));
       nav("/login");
     } else {
       if (!user?.name) {
