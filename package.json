@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "ecommerce project",
   "main": "server.js",
+  "engines": {
+    "node": "16.14.2"
+  },
   "type": "module",
   "scripts": {
     "start": "node backend/server.js",
