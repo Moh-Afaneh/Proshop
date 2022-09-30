@@ -50,7 +50,7 @@ export const HandleCart = (state = { cart: [] }, action) => {
         );
       }
     case "RESETITEM":
-      return { cart: [] };
+      return { state: [] };
 
     default:
       return state;
