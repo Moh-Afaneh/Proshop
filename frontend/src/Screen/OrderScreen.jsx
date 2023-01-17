@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 import lottie from "lottie-web";
-import { PayPalButton } from "react-paypal-button-v2";
+
 import {
   Button,
   Card,
@@ -197,7 +197,7 @@ function OrderScreen() {
                           {!sdkReady ? (
                             <Loader />
                           ) : (
-                            <PayPalButton
+                            <button
                               amount={order?.order?.totalPrice}
                               onSuccess={successPaymentHandler}
                             />
