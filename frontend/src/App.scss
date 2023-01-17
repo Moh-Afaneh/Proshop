@@ -1,0 +1,223 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after,
+input[type="search"] {
+  box-sizing: inherit;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+//
+// Remove `list-style` bullets of nav lists.
+//
+
+nav ul {
+  list-style: none;
+}
+
+//
+// Make images responsive.
+//
+
+img {
+  max-width: 100%;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+//
+// Remove delay from tapping on clickable elements.
+//
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  text-decoration: none;
+  outline: none;
+}
+a:active,
+a:focus {
+  outline: none;
+  border: none;
+}
+h3 {
+  margin: 1rem 0;
+}
+
+.spinner {
+  width: 100px;
+  display: block;
+  height: 100px;
+  margin: auto;
+}
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 50px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.search_input {
+  color: black;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 30px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input {
+  padding: 0 10px;
+  width: 450px;
+  caret-color: red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: white;
+  color: #e74c3c;
+}
+
+.search_icon {
+  height: 30px;
+  width: 30px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: black;
+  text-decoration: none;
+}
+
+@media (min-width: 200px) and (max-width: 800px) {
+  .searchbar {
+    display: none;
+  }
+  .carousel-caption h2 {
+    display: none;
+  }
+  .carousel img {
+    object-fit: cover;
+    max-height: 363px;
+    padding: 30px;
+    margin: 8px;
+    border-radius: 50%;
+  }
+  .carousel-item {
+    width: 86%;
+  }
+}
+@media (min-width: 800px) and (max-width: 1400px) {
+  .searchbar {
+    display: none;
+  }
+}
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel img {
+  width: 40%;
+}
+.carousel-caption {
+  position: absolute;
+  top: 7px;
+  left: 23%;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+  font-size: 1em;
+}
+
+.carousel img {
+  object-fit: cover;
+  max-height: 400px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 50%;
+}
+.carousel a {
+  margin: 0 auto;
+}
+.spinner {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+.carousel-inner {
+  position: relative;
+  width: 95%;
+  overflow: hidden;
+}
